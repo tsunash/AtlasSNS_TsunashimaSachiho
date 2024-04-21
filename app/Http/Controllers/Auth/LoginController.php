@@ -43,6 +43,11 @@ class LoginController extends Controller
         if($request->isMethod('post')){
 
             $data=$request->only('mail','password');
+
+            $request->validate([
+                'mail' => 'max:255|string|required',
+                'password' => 'max:255|string|required',
+            ]);
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){

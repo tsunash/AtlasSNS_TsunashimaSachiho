@@ -46,13 +46,19 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
+            $validated=$request->validate([
+                'username'=>'required|string|max:255',
+                'mail'=>'required|string|max:255|unique:users',
+                'password'=>'required|string|max:255|confirmed',
+            ]);
+
             User::create([
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
 
-            return redirect('added');
+            return redirect('/added');
         }
         return view('auth.register');
     }
