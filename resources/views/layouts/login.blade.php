@@ -40,7 +40,11 @@
             <div id="head-container">
                 <div id="header-menu">
                     <!-- <p>〇〇さん<img src="images/arrow.png"></p> -->
-                    <p>〇〇さん<span class="triangle-btn"></span><img src="images/arrow.png"></p>
+                        @auth
+                        <p>{{ Auth::user()->username }}さん</p>
+                        @endauth
+                        <span class="triangle-btn"></span>
+                        <img src="images/arrow.png">
                 <div>
             </div>
         </div>
