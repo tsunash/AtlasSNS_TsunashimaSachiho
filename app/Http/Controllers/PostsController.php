@@ -9,7 +9,10 @@ use Auth;
 class PostsController extends Controller
 {
     public function index(){
-        return view('posts.index');
+
+        $posts = Post::orderBy('created_at','desc')->get();
+        return view('posts.index',['posts'=>$posts]);
+
     }
 
     public function postCreate(Request $request){
@@ -28,4 +31,21 @@ class PostsController extends Controller
 
         return redirect('/top');
     }
+
+    public function edit(Request $request){
+
+        $id = $request->input('id');
+        $post = $request->input('post');
+
+        $request->validate([
+            'post' => 'required|min:1|max:150'
+        ]);
+
+        Post::where('id',$id)->update([
+            'post' => $post
+        ]);
+
+        return redirect('/top');
+    }
+
 }

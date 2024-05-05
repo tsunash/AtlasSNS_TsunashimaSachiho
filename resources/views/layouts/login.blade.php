@@ -18,20 +18,6 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
-    <!-- JQuery -->
-    <script src="js/app.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('.triangle-btn').click(function(){
-                $(this).toggleClass('active');
-                if($(this).hasClass('active')){
-                    $('.acco-menu').addClass('active');
-                }else{
-                    $('.acco-menu').removeClass('active');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -66,19 +52,32 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="link"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="link"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="link"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+
+    <!-- JQuery -->
+    <script src="js/app.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.triangle-btn').click(function(){
+                $(this).toggleClass('active');
+                if($(this).hasClass('active')){
+                    $('.acco-menu').addClass('active');
+                }else{
+                    $('.acco-menu').removeClass('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

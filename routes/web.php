@@ -34,7 +34,8 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::group(['middleware' => 'auth'],function(){
 
 Route::get('/top','PostsController@index');
-Route::post('/top','PostsController@postCreate');
+Route::post('/post','PostsController@postCreate');
+Route::post('/edit','PostsController@edit');
 
 Route::get('/profile','UsersController@profile');
 
