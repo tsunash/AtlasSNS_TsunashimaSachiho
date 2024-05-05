@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'],function(){
 Route::get('/top','PostsController@index');
 Route::post('/post','PostsController@postCreate');
 Route::post('/edit','PostsController@edit');
+Route::get('/delete/{id}','PostsController@delete');
 
 Route::get('/profile','UsersController@profile');
 

@@ -25,13 +25,12 @@
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="head-container">
                 <div id="header-menu">
-                    <!-- <p>〇〇さん<img src="images/arrow.png"></p> -->
                         @auth
                         <p>{{ Auth::user()->username }}さん</p>
-                        @endauth
                         <span class="triangle-btn"></span>
-                        <img src="images/arrow.png">
-                <div>
+                        <img class="icon" src="images/{{ Auth::user()->images }}">
+                        @endauth
+                </div>
             </div>
         </div>
     </header>
