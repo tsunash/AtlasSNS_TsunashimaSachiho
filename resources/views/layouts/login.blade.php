@@ -25,11 +25,9 @@
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="head-container">
                 <div id="header-menu">
-                        @auth
                         <p>{{ Auth::user()->username }}さん</p>
                         <span class="triangle-btn"></span>
                         <img class="icon" src="images/{{ Auth::user()->images }}">
-                        @endauth
                 </div>
             </div>
         </div>
@@ -46,7 +44,7 @@
         <div id="side-bar">
 
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>

@@ -10,10 +10,10 @@
   <input type="image" name="submit" src="/images/post.png" alt= "送信" class="submit-btn btn">
   {{ Form::close() }}
 </div>
-<div class=timeline-box>
+<div>
   <ul>
       @foreach($posts as $post)
-        <li>
+        <li class=timeline-list>
           <div class="tl-left">
             <img class="icon" src="/images/{{ $post->user->images }}">
           </div>
