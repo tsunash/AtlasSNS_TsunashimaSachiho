@@ -32,11 +32,19 @@ class User extends Authenticatable
         $this->hasMany('App\Post');
     }
 
-    // public function follows(){
-        // return $this->belongsToMany(Follow::class,'follows','following_id','followed_id');
-        // return $this->belongsToMany(Follow::class,'follows','followed_id','following_id');
 
-        // return $this->belongsToMany(Follow::class,'follows','id','follower_id');
-        // return $this->belongsToMany(Follow::class,'follows','id','followed_id');
-    // }
+    public function follows(){
+    return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
+    public function followUsers(){
+    return $this->belongsToMany('App\User','follows','followed_id','following_id');
+    }
+
+
+    public function isFollowing(){
+    // $is_following = Auth::id()->follow()->followed_id->get();
+    return $this->follows()->where('followed_id',$user->id())->exist();
+    }
+
+
 }

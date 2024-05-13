@@ -44,6 +44,7 @@ Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
 
 Route::post('/follow','FollowsController@follow');
+Route::post('/remove','FollowsController@remove');
 
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');

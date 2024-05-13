@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index(){
 
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::whereIn('user_id',Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
         return view('posts.index',['posts'=>$posts]);
 
     }
@@ -48,7 +48,7 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function delete($id){
+    public function delete(Int $id){
         Post::where('id',$id)->delete();
         return redirect('/top');
     }

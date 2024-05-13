@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="search-box">
   {{ Form::open(['url'=>'/search','class'=>'search-form']) }}
   @csrf
@@ -21,11 +23,18 @@
         <img src="/images/{{ $user->images }}" class="icon">
         <p>{{ $user->username }}</p>
 
-        <form url="/follow" method="post">
+
+        {{ Form::open(['url'=>'/follow']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
           <input type="submit" value="フォローする">
-        </form>
+        {{ Form::close() }}
+
+        {{ Form::open(['url'=>'/remove']) }}
+          @csrf
+          <input type="hidden" name="followed_id" value="{{ $user->id }}">
+          <input type="submit" value="フォロー解除">
+        {{ Form::close() }}
 
       </li>
     @endforeach
