@@ -23,19 +23,20 @@
         <img src="/images/{{ $user->images }}" class="icon">
         <p>{{ $user->username }}</p>
 
-
+@if(!Auth::user()->isFollowing($user->id))
+{{ $user->id }}
         {{ Form::open(['url'=>'/follow']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
           <input type="submit" value="フォローする">
         {{ Form::close() }}
-
+@else
         {{ Form::open(['url'=>'/remove']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
           <input type="submit" value="フォロー解除">
         {{ Form::close() }}
-
+@endif
       </li>
     @endforeach
   </ul>

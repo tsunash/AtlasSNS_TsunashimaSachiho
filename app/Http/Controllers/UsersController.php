@@ -30,4 +30,5 @@ class UsersController extends Controller
         return view('users.search',['users'=>$users,'keyword'=>$keyword]);
     }
 
+
 }
