@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div>
+{{ $users }}
+
 <form>
   画像
   ユーザー名
@@ -11,6 +14,6 @@
   自己紹介
   アイコン画像
 </form>
-
+</div>
 
 @endsection

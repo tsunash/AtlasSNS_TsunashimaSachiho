@@ -8,8 +8,11 @@ use App\User;
 
 class UsersController extends Controller
 {
-    public function profile(){
-        return view('users.profile');
+    public function profile(Int $id){
+        $users = User::where('id',$id)->first();
+        // dd($users);
+
+        return view('users.profile',['users'=>$users]);
     }
 
     public function logout(){

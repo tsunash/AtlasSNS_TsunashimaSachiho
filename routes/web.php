@@ -38,7 +38,8 @@ Route::post('/post','PostsController@postCreate');
 Route::post('/edit','PostsController@edit');
 Route::get('/delete/{id}','PostsController@delete');
 
-Route::get('/profile','UsersController@profile');
+// Route::get('/profile','UsersController@profile');
+Route::get('/profile/{id}','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Follow;
+use App\Post;
 use Auth;
 
 class FollowsController extends Controller
@@ -11,10 +12,14 @@ class FollowsController extends Controller
     //
     public function followList(){
 
-        $follows = Follow::where('following_id',Auth::id())->get();
-
-        return view('follows.followList',['follows'=>$follows]);
+        $follows = Auth::user()->follows()->get();
+        $follows_id = Auth::user()->follows()->pluck('followed_id');
+        // dd($follows_id);
+        $follows_posts = Post::with('user')->whereIn('user_id',$follows_id)->orderBy('created_at','desc')->get();
+        // dd($follows_posts);
+        return view('follows.followList',['follows'=>$follows,'follows_posts'=>$follows_posts]);
     }
+
     public function followerList(){
         $followed = Follow::users()->followed_id();
                 dd($followed);
