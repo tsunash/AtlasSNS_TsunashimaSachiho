@@ -21,10 +21,11 @@ class FollowsController extends Controller
     }
 
     public function followerList(){
-        $followed = Follow::users()->followed_id();
-                dd($followed);
+        $followed = Auth::user()->followUsers()->get();
+        $followed_id = $followed->pluck('id');
+        $followed_posts = Post::with('user')->whereIn('user_id',$followed_id)->orderBy('created_at','desc')->get();
 
-        return view('follows.followerList');
+        return view('follows.followerList',['followed'=>$followed,'followed_posts'=>$followed_posts]);
     }
 
     public function follow(Request $request){
