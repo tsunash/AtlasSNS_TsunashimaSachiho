@@ -32,13 +32,15 @@
             </div>
         </div>
     </header>
+
+
     <div id="row">
         <div id="container">
             @yield('content')
         </div >
         <ul class="acco-menu">
             <li><a href="/top">HOME</a></li>
-            <li><a href="/profile">プロフィール</a></li>
+            <li><a href="/profile/{{ Auth::id() }}" >プロフィール</a></li>
             <li><a href="/logout">ログアウト</a></li>
         </ul>
         <div id="side-bar">
@@ -47,12 +49,12 @@
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->follows->count() }}名</p>
                 </div>
                 <p class="link"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->followUsers->count() }}名</p>
                 </div>
                 <p class="link"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
@@ -62,8 +64,9 @@
     <footer>
     </footer>
 
-    <!-- JQuery -->
-    <script src="js/app.js"></script>
+
+            <!-- JQuery -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         $(function(){
             $('.triangle-btn').click(function(){
@@ -76,5 +79,6 @@
             });
         });
     </script>
+
 </body>
 </html>
