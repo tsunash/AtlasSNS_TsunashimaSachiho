@@ -38,7 +38,8 @@ class FollowsController extends Controller
             'followed_id'=>$followed_id
         ]);
 
-        return redirect('/search');
+        return back();
+        // return redirect('/search');
 
     }
 
@@ -47,7 +48,8 @@ class FollowsController extends Controller
         $followed_id = $request->get('followed_id');
         Follow::where('followed_id',$followed_id)->delete();
 
-        return redirect('/search');
+        return back();
+        // return redirect('/search');
     }
 
 

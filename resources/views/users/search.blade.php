@@ -22,9 +22,7 @@
       <li class=search-list>
         <img src="/images/{{ $user->images }}" class="icon">
         <p>{{ $user->username }}</p>
-
 @if(!Auth::user()->isFollowing($user->id))
-{{ $user->id }}
         {{ Form::open(['url'=>'/follow']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
