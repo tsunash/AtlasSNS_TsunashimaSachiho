@@ -35,4 +35,43 @@ class UsersController extends Controller
     }
 
 
+    public function profileEdit(Request $request){
+
+        $id = $request->input('id');
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $bio = $request->input('bio');
+        $images = $request->file('images')->getClientOriginalName();
+        // dd($images);
+        if(isset($images)){
+            $image_path = $request->file('images')->storeAs('public',$images);
+            $image_name = '../storage'.'/'.$images;
+            User::where('id',$id)->update([
+                'images' => $image_name
+            ]);
+        };
+
+
+        $request->validate([
+            'username' => 'required|string|min:2|max:12',
+            'mail' => 'required|string|min:5|max:40|email|unique:users,mail,'.$id.'id',
+            'password' => 'required|min:8|max:20|regex:/^[a-zA-Z0-9]+$/|confirmed',
+            'bio' => 'max:150|string',
+            'images' => 'mimes:jpg,png,bmp,gif,svg'
+        ]);
+
+        User::where('id',$id)->update([
+            'username' => $username,
+            'mail' => $mail,
+            'password' => bcrypt($password),
+            'bio' => $bio,
+        ]);
+
+        return redirect('/top');
+
+
+
+    }
+
 }

@@ -47,9 +47,9 @@ class RegisterController extends Controller
             $password = $request->input('password');
 
             $validated=$request->validate([
-                'username'=>'required|string|max:255',
-                'mail'=>'required|string|max:255|unique:users',
-                'password'=>'required|string|max:255|confirmed',
+                'username'=>'required|string|min:2|max:12',
+                'mail'=>'required|string|min:5|max40|unique:users|email',
+                'password'=>'required|min:8|max:20|regex:/^[a-zA-Z0-9]+$|confirmed',
             ]);
 
             User::create([

@@ -32,7 +32,7 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function edit(Request $request){
+    public function postEdit(Request $request){
 
         $id = $request->input('id');
         $post = $request->input('post');

@@ -35,11 +35,12 @@ Route::group(['middleware' => 'auth'],function(){
 
 Route::get('/top','PostsController@index');
 Route::post('/post','PostsController@postCreate');
-Route::post('/edit','PostsController@edit');
+Route::post('/post/edit','PostsController@postEdit');
 Route::get('/delete/{id}','PostsController@delete');
 
 // Route::post('/profile','UsersController@profile');
 Route::get('/profile/{id}','UsersController@profile');
+Route::post('/profile/edit','UsersController@profileEdit')->name('profile.edit');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');

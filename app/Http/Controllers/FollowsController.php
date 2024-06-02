@@ -14,9 +14,9 @@ class FollowsController extends Controller
 
         $follows = Auth::user()->follows()->get();
         $follows_id = Auth::user()->follows()->pluck('followed_id');
-        // dd($follows_id);
+
         $follows_posts = Post::with('user')->whereIn('user_id',$follows_id)->orderBy('created_at','desc')->get();
-        // dd($follows_posts);
+
         return view('follows.followList',['follows'=>$follows,'follows_posts'=>$follows_posts]);
     }
 

@@ -27,7 +27,7 @@
                 <div id="header-menu">
                         <p>{{ Auth::user()->username }}さん</p>
                         <span class="triangle-btn"></span>
-                        <img class="icon" src="/images/{{ Auth::user()->images }}">
+                        <img class="icon" src="{{asset('/images/'. Auth::user()->images )}}">
                 </div>
             </div>
         </div>

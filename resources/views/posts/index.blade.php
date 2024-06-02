@@ -5,8 +5,9 @@
 <div class=post-box>
   {{ Form::open(['action' => 'PostsController@postCreate']) }}
   @csrf
-  <img class="icon" src='/images/{{ Auth::user()->images }}'>
-  {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。','minlenght'=>'1','maxlength'=>'150','required']) }}
+  <img class="icon" src="{{asset('/images/'. Auth::user()->images)}}">
+
+  {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。','minlength'=>'1','maxlength'=>'150','required']) }}
   <input type="image" name="submit" src="/images/post.png" alt= "送信" class="submit-btn btn">
   {{ Form::close() }}
 </div>
@@ -15,7 +16,7 @@
       @foreach($posts as $post)
         <li class=timeline-list>
           <div class="tl-left">
-            <img class="icon" src="/images/{{ $post->user->images }}">
+            <img class="icon" src="{{asset('/images/'. $post->user->images)}}">
           </div>
           <div class="tl-middle">
             <p> {{ $post->user->username }}</p>
@@ -40,7 +41,7 @@
             <div class="modal-inner">
             </div>
             <div class="modal-box">
-              {{ form::open(['action' => 'PostsController@edit','class' => 'modal-form']) }}
+              {{ form::open(['action' => 'PostsController@postEdit','class' => 'modal-form']) }}
                 @csrf
                 <textarea class="edit-post" name="post" min-length=1 max-length=150 required></textarea>
                 <input type="hidden" class="edit-id" name="id">
