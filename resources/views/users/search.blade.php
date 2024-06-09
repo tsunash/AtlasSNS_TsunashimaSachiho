@@ -5,19 +5,19 @@
 
 
 <div class="search-box">
-  {{ Form::open(['url'=>'/search','class'=>'search-form']) }}
+  {{ Form::open(['url'=>'/search']) }}
   @csrf
   {{ Form::input('text','keyword','',['placeholder'=>'ユーザー名','class'=>'search-text']) }}
   <input type="image" src="/images/search.png" class="btn" alt="検索">
   {{ Form::close() }}
 
   @if(isset($keyword))
-  <p>検索ワード：{{ $keyword }}</p>
+  <p class="search-word">検索ワード：{{ $keyword }}</p>
   @endif
 </div>
 
 <div>
-  <ul>
+  <ul class="search-wrapper">
     @foreach($users as $user)
       <li class=search-list>
         <img src="{{ asset('/images/'. $user->images )}}" class="icon">
@@ -26,13 +26,13 @@
         {{ Form::open(['url'=>'/follow']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
-          <input type="submit" value="フォローする">
+          <input type="submit" value="フォローする" class="follow-btn">
         {{ Form::close() }}
 @else
         {{ Form::open(['url'=>'/remove']) }}
           @csrf
           <input type="hidden" name="followed_id" value="{{ $user->id }}">
-          <input type="submit" value="フォロー解除">
+          <input type="submit" value="フォロー解除" class="remove-btn">
         {{ Form::close() }}
 @endif
       </li>

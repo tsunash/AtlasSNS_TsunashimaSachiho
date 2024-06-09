@@ -42,9 +42,8 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        $images = $request->file('images')->getClientOriginalName();
-        // dd($images);
         if(isset($images)){
+            $images = $request->file('images')->getClientOriginalName();
             $image_path = $request->file('images')->storeAs('public',$images);
             $image_name = '../storage'.'/'.$images;
             User::where('id',$id)->update([

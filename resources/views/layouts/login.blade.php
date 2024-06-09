@@ -25,7 +25,7 @@
         <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
             <div id="head-container">
                 <div id="header-menu">
-                        <p>{{ Auth::user()->username }}さん</p>
+                        <p><span class="header-name">{{ Auth::user()->username }}</span>さん</p>
                         <span class="triangle-btn"></span>
                         <img class="icon" src="{{asset('/images/'. Auth::user()->images )}}">
                 </div>
@@ -38,6 +38,7 @@
         <div id="container">
             @yield('content')
         </div >
+
         <ul class="acco-menu">
             <li><a href="/top">HOME</a></li>
             <li><a href="/profile/{{ Auth::id() }}" >プロフィール</a></li>
@@ -46,26 +47,30 @@
         <div id="side-bar">
 
             <div id="confirm">
+
                 <p>{{ Auth::user()->username }}さんの</p>
-                <div>
+                <div class="confirm-count">
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows->count() }}名</p>
                 </div>
-                <p class="link"><a href="/follow-list">フォローリスト</a></p>
-                <div>
+
+                <p class="link follow-list-link"><a href="/follow-list">フォローリスト</a></p>
+
+                <div class="confirm-count">
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->followUsers->count() }}名</p>
                 </div>
-                <p class="link"><a href="/follower-list">フォロワーリスト</a></p>
+
+                <p class="link follower-list-link"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="link"><a href="/search">ユーザー検索</a></p>
+
+            <p class="link search-link"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
 
 
-            <!-- JQuery -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
         $(function(){

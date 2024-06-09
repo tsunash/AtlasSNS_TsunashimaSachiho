@@ -2,26 +2,36 @@
 
 @section('content')
 
-<div>
-<p>フォロワーリスト</p>
-@foreach($followed as $follow)
-<a href="/profile/{{ $follow->id }}">
-<img src="/images/{{ $follow->images }}" class="icon">
-</a>
-@endforeach
+<div class="follow-top">
+  <h2>フォロワーリスト</h2>
+  <div class="icon-wrapper">
+    @foreach($followed as $follow)
+    <a href="/profile/{{ $follow->id }}">
+    <img src="/images/{{ $follow->images }}" class="icon">
+    </a>
+    @endforeach
+  </div>
 </div>
 
 <div>
+  <ul>
 @foreach($followed_posts as $post)
-<a href="/profile/{{ $post->user_id }}">
-<img src="/images/{{ $post->user->images }}" class="icon">
-</a>
-{{ $post->user->username }}
-{{ $post->post }}
-{{ $post->created_at }}
-<br>
-
+  <li class="timeline-list">
+    <div class="timeline-box">
+      <div class="tl-left">
+        <a href="/profile/{{ $post->user_id }}">
+        <img src="/images/{{ $post->user->images }}" class="icon">
+      </a>
+      </div>
+      <div class="tl-middle">
+        <p>{{ $post->user->username }}</p>
+        <p>{{ $post->post }}</p>
+      </div>
+      <p class="tl-right">{{ $post->created_at }}</p>
+    </div>
+  </li>
 @endforeach
+</ul>
 </div>
 
 

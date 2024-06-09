@@ -6,7 +6,6 @@
   {{ Form::open(['action' => 'PostsController@postCreate']) }}
   @csrf
   <img class="icon" src="{{asset('/images/'. Auth::user()->images)}}">
-
   {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。','minlength'=>'1','maxlength'=>'150','required']) }}
   <input type="image" name="submit" src="/images/post.png" alt= "送信" class="submit-btn btn">
   {{ Form::close() }}
@@ -14,17 +13,19 @@
 <div>
   <ul>
       @foreach($posts as $post)
-        <li class=timeline-list>
-          <div class="tl-left">
-            <img class="icon" src="{{asset('/images/'. $post->user->images)}}">
+        <li class="timeline-list">
+          <div class="timeline-box">
+            <div class="tl-left">
+              <img class="icon" src="{{asset('/images/'. $post->user->images)}}">
+            </div>
+            <div class="tl-middle">
+              <p> {{ $post->user->username }}</p>
+              <p> {{ $post->post }}</p>
+            </div>
+            <p class="tl-right">{{ $post->created_at }}</p>
           </div>
-          <div class="tl-middle">
-            <p> {{ $post->user->username }}</p>
-            <p> {{ $post->post }}</p>
-          </div>
-          <div class="tl-right">
-            <p>{{ $post->created_at }}</p>
-            <div class="btn-wrapper">
+
+          <div class="btn-wrapper">
               @if($post->user_id == Auth::user()->id)
               <a class="modalopen" post="{{ $post->post }}" post_id="{{ $post->id }}"><img class="edit-btn btn" src="images/edit.png" alt="編集"></a>
               <a href="/delete/{{ $post->id }}" class="delete-box" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
@@ -32,8 +33,8 @@
                 <img class="delete-btn btn" src="images/trash-h.png" alt="削除">
               </a>
               @endif
-            </div>
           </div>
+
         </li>
 
               <!-- モーダルウィンドウ  -->
@@ -55,7 +56,7 @@
   </ul>
 </div>
 
-<script src="js/app.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
 
   $(function(){

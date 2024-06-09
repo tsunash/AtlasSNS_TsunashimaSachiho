@@ -1,10 +1,10 @@
 @extends('layouts.logout')
 
 @section('content')
-<!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/register']) !!}
 
-<h2>新規ユーザー登録</h2>
+<h2 class="form-title">新規ユーザー登録</h2>
+
+{!! Form::open(['url' => '/register']) !!}
 
 @if($errors->any())
 <div>
@@ -16,21 +16,24 @@
 </div>
 @endif
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+<div class="form-box">
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+{{ Form::label('ユーザー名') }}<br>
+{{ Form::text('username',null,['class' => 'input']) }}<br>
 
-{{ Form::label('パスワード') }}
-{{ Form::password('password',null,['class' => 'input']) }}
+{{ Form::label('メールアドレス') }}<br>
+{{ Form::text('mail',null,['class' => 'input']) }}<br>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+{{ Form::label('パスワード') }}<br>
+{{ Form::password('password',['class' => 'input']) }}<br>
 
-{{ Form::submit('登録') }}
+{{ Form::label('パスワード確認') }}<br>
+{{ Form::password('password_confirmation',['class' => 'input']) }}<br>
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+{{ Form::submit('新規登録',['class' => 'btn register-btn']) }}
+</div>
+
+<p class="login-link"><a href="/login">ログイン画面へ戻る</a></p>
 
 {!! Form::close() !!}
 
