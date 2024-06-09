@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="ページの内容を表す文章" />
-    <title></title>
+    <meta name="description" content="AtlasSNS" />
+    <title>AtlasSNS</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <!--スマホ,タブレット対応-->
@@ -39,11 +39,13 @@
             @yield('content')
         </div >
 
-        <ul class="acco-menu">
-            <li><a href="/top">HOME</a></li>
-            <li><a href="/profile/{{ Auth::id() }}" >プロフィール</a></li>
-            <li><a href="/logout">ログアウト</a></li>
-        </ul>
+        <nav>
+            <ul class="accordion-menu">
+                <li><a href="/top">HOME</a></li>
+                <li><a href="/profile/{{ Auth::id() }}" >プロフィール</a></li>
+                <li><a href="/logout">ログアウト</a></li>
+            </ul>
+        </nav>
         <div id="side-bar">
 
             <div id="confirm">
@@ -77,9 +79,9 @@
             $('.triangle-btn').click(function(){
                 $(this).toggleClass('active');
                 if($(this).hasClass('active')){
-                    $('.acco-menu').addClass('active');
+                    $('.accordion-menu').addClass('active');
                 }else{
-                    $('.acco-menu').removeClass('active');
+                    $('.accordion-menu').removeClass('active');
                 }
             });
         });

@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <!--IEブラウザ対策-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="ページの内容を表す文章" />
-  <title></title>
+  <meta name="description" content="AtlasSNS" />
+  <title>AtlasSNS</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
   <!--スマホ,タブレット対応-->
@@ -27,7 +27,5 @@
   <div id="container">
     @yield('content')
   </div>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>

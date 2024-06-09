@@ -61,11 +61,11 @@ header {
 }
 
 /* accordion-menu */
-.acco-menu {
+.accordion-menu {
     display: none;
 }
 
-.acco-menu.active {
+.accordion-menu.active {
     display: block;
     background-color: #ffffff;
     border: 1px solid #cccccc;
@@ -75,32 +75,32 @@ header {
     z-index: 200;
 }
 
-.acco-menu.active li {
+.accordion-menu.active li {
     display: block;
     max-width: 100%;
     text-align: center;
     border-bottom: 1px solid #cccccc;
 }
 
-.acco-menu li:last-child {
+.accordion-menu li:last-child {
     border-bottom: none;
 }
 
-.acco-menu li:hover {
+.accordion-menu li:hover {
     background-color: #00297e;
 }
 
-.acco-menu a {
+.accordion-menu a {
     display: block;
     padding: 30px;
 }
 
-.acco-menu a:link,
+.accordion-menu a:link,
 a:visited {
     color: #727272;
 }
 
-.acco-menu a:hover {
+.accordion-menu a:hover {
     color: #ffffff;
 }
 
