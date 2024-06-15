@@ -3,12 +3,21 @@
 @section('content')
 
 <div class=post-box>
+    @if($errors->any())
+      <ul>
+      @foreach($errors->all() as $error)
+        <li class="red">{{ $error }}</li>
+      @endforeach
+      </ul>
+    @endif
+
   {{ Form::open(['action' => 'PostsController@postCreate']) }}
   @csrf
   <img class="icon" src="{{asset('/images/'. Auth::user()->images)}}">
-  {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。','minlength'=>'1','maxlength'=>'150','required']) }}
+  {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。']) }}
   <input type="image" name="submit" src="/images/post.png" alt= "送信" class="submit-btn btn">
   {{ Form::close() }}
+
 </div>
 <div>
   <ul>
@@ -20,9 +29,9 @@
             </div>
             <div class="tl-middle">
               <p> {{ $post->user->username }}</p>
-              <p> {{ $post->post }}</p>
+              <p> {!! nl2br(e($post->post,false)) !!}</p>
             </div>
-            <p class="tl-right">{{ $post->created_at }}</p>
+            <p class="tl-right">{{ substr($post->created_at,0,16) }}</p>
           </div>
 
           <div class="btn-wrapper">
@@ -34,52 +43,28 @@
               </a>
               @endif
           </div>
-
         </li>
-
-              <!-- モーダルウィンドウ  -->
+      @endforeach
+     </ul>
+          <!-- モーダルウィンドウ  -->
           <div class=modal-main>
             <div class="modal-inner">
             </div>
             <div class="modal-box">
+
               {{ form::open(['action' => 'PostsController@postEdit','class' => 'modal-form']) }}
                 @csrf
-                <textarea class="edit-post" name="post" min-length=1 max-length=150 required></textarea>
-                <input type="hidden" class="edit-id" name="id">
+                <textarea class="edit-post" name="edit-post"></textarea>
+                <input type="hidden" class="edit-id" name="edit-id">
                 <input type="image" src="/images/edit.png" class="edit-btn btn">
               {{ form::close() }}
+
             </div>
           </div>
 
 
-      @endforeach
-  </ul>
+
 </div>
-
-<script src="{{ asset('js/app.js') }}"></script>
-<script type="text/javascript">
-
-  $(function(){
-      $('.modalopen').each(function(){
-        $(this).on('click',function(){
-        $('.modal-main').fadeIn();
-        var post = $(this).attr('post');
-        var post_id = $(this).attr('post_id');
-        $('.edit-post').val(post);
-        $('.edit-id').val(post_id);
-        return false;
-        });
-
-      $('.modal-inner').on('click',function(){
-        $('.modal-main').fadeOut();
-        return false;
-      });
-      });
-  });
-
-
-</script>
-
 
 
 @endsection

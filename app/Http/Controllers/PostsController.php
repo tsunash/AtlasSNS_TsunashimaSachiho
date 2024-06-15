@@ -34,18 +34,19 @@ class PostsController extends Controller
 
     public function postEdit(Request $request){
 
-        $id = $request->input('id');
-        $post = $request->input('post');
+        $edit_id = $request->input('edit-id');
+        $edit_post = $request->input('edit-post');
 
         $request->validate([
-            'post' => 'required|min:1|max:150'
+            'edit-post' => 'required|min:3|max:150'
         ]);
 
-        Post::where('id',$id)->update([
-            'post' => $post
-        ]);
+            Post::where('id',$edit_id)->update([
+                'post' => $edit_post
+            ]);
 
-        return redirect('/top');
+            return redirect('/top');
+
     }
 
     public function delete(Int $id){

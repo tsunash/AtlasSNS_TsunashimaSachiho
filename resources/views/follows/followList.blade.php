@@ -25,9 +25,9 @@
       </div>
       <div class="tl-middle">
         <p>{{ $post->user->username }}</p>
-        <p>{{ $post->post }}</p>
+        <p>{!! nl2br(e($post->post)) !!}</p>
       </div>
-      <p class="tl-right">{{ $post->created_at }}</p>
+      <p class="tl-right">{{ substr($post->created_at,0,16) }}</p>
     </div>
   </li>
 @endforeach

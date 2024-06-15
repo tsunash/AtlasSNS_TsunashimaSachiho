@@ -42,14 +42,8 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        if(isset($images)){
-            $images = $request->file('images')->getClientOriginalName();
-            $image_path = $request->file('images')->storeAs('public',$images);
-            $image_name = '../storage'.'/'.$images;
-            User::where('id',$id)->update([
-                'images' => $image_name
-            ]);
-        };
+        $images = $request->file('images')->getClientOriginalName();
+
 
 
         $request->validate([
@@ -66,6 +60,15 @@ class UsersController extends Controller
             'password' => bcrypt($password),
             'bio' => $bio,
         ]);
+
+        if(isset($images)){
+            $request->file('images')->storeAs('public',$images);
+            $image_name = '../storage'.'/'.$images;
+            User::where('id',$id)->update([
+                'images' => $image_name
+            ]);
+        };
+
 
         return redirect('/top');
 

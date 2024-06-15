@@ -8,6 +8,7 @@
     <title>AtlasSNS</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -18,6 +19,11 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
+
 </head>
 <body>
     <header>
@@ -72,20 +78,6 @@
     <footer>
     </footer>
 
-
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript">
-        $(function(){
-            $('.triangle-btn').click(function(){
-                $(this).toggleClass('active');
-                if($(this).hasClass('active')){
-                    $('.accordion-menu').addClass('active');
-                }else{
-                    $('.accordion-menu').removeClass('active');
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>

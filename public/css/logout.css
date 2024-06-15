@@ -125,3 +125,10 @@ header p {
 .login-link a {
     text-decoration: 1px underline;
 }
+
+.red {
+    color: #ff0000;
+    background-color: pink;
+    width: fit-content;
+    margin: 3px 5px;
+}

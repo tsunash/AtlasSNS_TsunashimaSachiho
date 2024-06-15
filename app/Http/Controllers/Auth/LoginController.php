@@ -45,12 +45,16 @@ class LoginController extends Controller
             $data=$request->only('mail','password');
 
             $request->validate([
-                'mail' => 'max:255|string|required',
+                'mail' => 'max:255|string|required|email',
                 'password' => 'max:255|string|required',
             ]);
 
             if(Auth::attempt($data)){
                 return redirect('/top');
+            }else{
+                return back()->withErrors([
+                    'error' => 'メールアドレスまたはパスワードが正しくありません。'
+                ]);
             }
         }
         return view("auth.login");
