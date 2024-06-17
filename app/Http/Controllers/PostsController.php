@@ -35,10 +35,10 @@ class PostsController extends Controller
     public function postEdit(Request $request){
 
         $edit_id = $request->input('edit-id');
-        $edit_post = $request->input('edit-post');
+        $edit_post = $request->input('editpost');
 
         $request->validate([
-            'edit-post' => 'required|min:3|max:150'
+            'editpost' => 'required|min:1|max:150'
         ]);
 
             Post::where('id',$edit_id)->update([

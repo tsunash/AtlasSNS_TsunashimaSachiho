@@ -29,3 +29,29 @@ $(function () {
     });
   });
 });
+
+// modal-validate
+$(function () {
+  $('#modal-form').validate({
+    rules: {
+      editpost: {
+        required: true, minlength: 1, maxlength: 150,
+      },
+    },
+    messages: {
+      editpost: {
+        required: '投稿は1文字以上150文字以内で編集してください。',
+        minlength: '投稿は1文字以上150文字以内で編集してください。',
+        maxlength: '投稿は1文字以上150文字以内で編集してください。',
+      },
+    },
+
+    errorClass: "red center",
+    errorElement: "p",
+
+    errorPlacement: function (error, element) {
+      error.insertAfter(element)
+    },
+
+  });
+});

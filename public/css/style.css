@@ -186,6 +186,10 @@ a:visited {
     color: #ff0000;
 }
 
+.center {
+    text-align: center;
+}
+
 /* top */
 .post-box img {
     vertical-align: top;
@@ -219,7 +223,8 @@ a:visited {
 }
 
 .tl-middle {
-    max-width: 45%;
+    max-width: 550px;
+    overflow-wrap: break-word;
 }
 
 .tl-right {
@@ -293,7 +298,7 @@ a:visited {
 
 }
 
-.modal-form input,
+#modal-form input,
 .edit-post {
     display: block;
     margin: 0 auto;
@@ -303,6 +308,12 @@ a:visited {
     width: 90%;
     height: 100px;
     margin-bottom: 30px;
+}
+
+.edit-btn-modal {
+    border: none;
+    background: url(../images/edit.png);
+    background-size: contain;
 }
 
 /* follow/follower */

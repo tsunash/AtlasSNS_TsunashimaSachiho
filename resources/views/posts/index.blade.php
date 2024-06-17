@@ -52,11 +52,11 @@
             </div>
             <div class="modal-box">
 
-              {{ form::open(['action' => 'PostsController@postEdit','class' => 'modal-form']) }}
+              {{ form::open(['action' => 'PostsController@postEdit','id' => 'modal-form']) }}
                 @csrf
-                <textarea class="edit-post" name="edit-post"></textarea>
+                <textarea class="edit-post" name="editpost"></textarea>
                 <input type="hidden" class="edit-id" name="edit-id">
-                <input type="image" src="/images/edit.png" class="edit-btn btn">
+                <input type="submit" class="edit-btn-modal btn" value="">
               {{ form::close() }}
 
             </div>

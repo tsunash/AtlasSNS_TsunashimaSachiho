@@ -21,6 +21,7 @@
     <!--OGPタグ/twitterカード-->
     <!-- jQuery -->
     <script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 
 

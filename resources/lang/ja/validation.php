@@ -108,7 +108,7 @@ return [
         'mail' => 'メールアドレス',
         'password' => 'パスワード',
         'username' => 'ユーザー名',
-        'edit-post' => '投稿の編集',
+        'editpost' => '投稿の編集',
     ],
 
 ];
