@@ -48,7 +48,7 @@
     <div class="red">{{ $$message }}</div>
     @enderror
 
-     <div class="profile-edit">
+    <div class="profile-edit">
     <label for="images">アイコン画像</label>
     <label for="images" class="custom-upload">ファイルを選択</label>
 

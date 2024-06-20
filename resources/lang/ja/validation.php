@@ -109,6 +109,7 @@ return [
         'password' => 'パスワード',
         'username' => 'ユーザー名',
         'editpost' => '投稿の編集',
+        'post' => '投稿',
     ],
 
 ];

@@ -42,7 +42,7 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        $images = $request->file('images')->getClientOriginalName();
+        $images = $request->file('images');
 
 
 
@@ -62,8 +62,8 @@ class UsersController extends Controller
         ]);
 
         if(isset($images)){
-            $request->file('images')->storeAs('public',$images);
-            $image_name = '../storage'.'/'.$images;
+            $image_name = $images->getClientOriginalName();
+            $request->file('images')->storeAs('public',$image_name);
             User::where('id',$id)->update([
                 'images' => $image_name
             ]);
