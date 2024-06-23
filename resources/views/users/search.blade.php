@@ -20,7 +20,7 @@
   <ul class="search-wrapper">
     @foreach($users as $user)
       <li class=search-list>
-        <img src="{{ asset('/images/'. $user->images )}}" class="icon">
+        <img src="{{ asset('storage/'. $user->images )}}" class="icon">
         <p>{{ $user->username }}</p>
 @if(!Auth::user()->isFollowing($user->id))
         {{ Form::open(['url'=>'/follow']) }}

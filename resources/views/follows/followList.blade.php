@@ -7,7 +7,7 @@
   <div class="icon-wrapper">
     @foreach($follows as $follow)
       <a href="/profile/{{ $follow->id }}">
-      <img src="{{asset('/images/'. $follow->images )}}" class="icon">
+      <img src="{{asset('storage/'. $follow->images )}}" class="icon">
       </a>
     @endforeach
   </div>
@@ -20,7 +20,7 @@
     <div class="timeline-box">
       <div class="tl-left">
         <a href="/profile/{{ $post->user_id }}">
-        <img src="{{asset('/images/'. $post->user->images )}}" class="icon">
+        <img src="{{asset('storage/'. $post->user->images )}}" class="icon">
         </a>
       </div>
       <div class="tl-middle">

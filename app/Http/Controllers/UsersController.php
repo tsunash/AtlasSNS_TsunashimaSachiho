@@ -50,7 +50,7 @@ class UsersController extends Controller
             'username' => 'required|string|min:2|max:12',
             'mail' => 'required|string|min:5|max:40|email|unique:users,mail,'.$id.'id',
             'password' => 'required|min:8|max:20|regex:/^[a-zA-Z0-9]+$/|confirmed',
-            'bio' => 'max:150|string',
+            'bio' => 'max:150',
             'images' => 'mimes:jpg,png,bmp,gif,svg'
         ]);
 

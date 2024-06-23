@@ -13,7 +13,7 @@
 
   {{ Form::open(['action' => 'PostsController@postCreate']) }}
   @csrf
-  <img class="icon" src="{{asset('/images/'. Auth::user()->images)}}">
+  <img class="icon" src="{{asset('storage/'. Auth::user()->images)}}">
   {{ Form::textarea('post','',['class'=>'post-form','placeholder'=>'投稿内容を入力してください。']) }}
   <input type="image" name="submit" src="/images/post.png" alt= "送信" class="submit-btn btn">
   {{ Form::close() }}
@@ -25,7 +25,7 @@
         <li class="timeline-list">
           <div class="timeline-box">
             <div class="tl-left">
-              <img class="icon" src="{{asset('/images/'. $post->user->images)}}">
+              <img class="icon" src="{{asset('storage/'. $post->user->images)}}">
             </div>
             <div class="tl-middle">
               <p> {{ $post->user->username }}</p>
@@ -45,7 +45,7 @@
           </div>
         </li>
       @endforeach
-     </ul>
+  </ul>
           <!-- モーダルウィンドウ  -->
           <div class=modal-main>
             <div class="modal-inner">
