@@ -35,7 +35,7 @@
                         <p><span class="header-name">{{ Auth::user()->username }}</span>さん</p>
                         <span class="triangle-btn"></span>
                         @if(Auth::user()->images === 'icon1.png')
-                        <img class="icon" src="{{asset('images/'. Auth::user()->images )}}">
+                        <img class="icon" src="{{asset('images/icon1.png')}}">
                         @else
                         <img class="icon" src="{{asset('storage/'. Auth::user()->images )}}">
                         @endif

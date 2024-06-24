@@ -21,7 +21,7 @@
     @foreach($users as $user)
       <li class=search-list>
         @if($user->images === 'icon1.png')
-        <img src="{{ asset('images/'. $user->images )}}" class="icon">
+        <img src="{{ asset('images/icon1.png')}}" class="icon">
         @else
         <img src="{{ asset('storage/'. $user->images )}}" class="icon">
         @endif

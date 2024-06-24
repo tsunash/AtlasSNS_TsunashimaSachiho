@@ -8,7 +8,7 @@
     @foreach($followed as $follow)
     <a href="/profile/{{ $follow->id }}">
       @if($follow->images === 'icon1.png')
-      <img src="{{ asset('images/'. $follow->images) }}" class="icon">
+      <img src="{{ asset('images/icon1.png')}}" class="icon">
       @else
       <img src="{{ asset('storage/'. $follow->images) }}" class="icon">
       @endif

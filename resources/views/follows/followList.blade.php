@@ -8,7 +8,7 @@
     @foreach($follows as $follow)
       <a href="/profile/{{ $follow->id }}">
         @if($follow->images === 'icon1.png')
-        <img src="{{asset('images/'. $follow->images )}}" class="icon">
+        <img src="{{asset('images/icon1.png')}}" class="icon">
         @else
         <img src="{{asset('storage/'. $follow->images )}}" class="icon">
         @endif
@@ -25,7 +25,7 @@
       <div class="tl-left">
         <a href="/profile/{{ $post->user_id }}">
           @if($post->user->images === 'icon1.png')
-          <img src="{{asset('images/'. $post->user->images )}}" class="icon">
+          <img src="{{asset('images/icon1.png')}}" class="icon">
           @else
           <img src="{{asset('storage/'. $post->user->images )}}" class="icon">
           @endif

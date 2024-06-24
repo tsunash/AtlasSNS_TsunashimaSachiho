@@ -6,7 +6,7 @@
 <div class="auth-profile-box">
 
   @if($users->images ==='icon1.png')
-  <img src="{{asset('images/'.$users->images)}}" class="icon">
+  <img src="{{asset('images/icon1.png')}}" class="icon">
   @else
   <img src="{{asset('storage/'.$users->images)}}" class="icon">
   @endif
@@ -70,7 +70,7 @@
 @else
 <div class="profile-top">
   @if($users->images === 'icon1.png')
-  <img src="{{asset('images/'.$users->images)}}" class="icon">
+  <img src="{{asset('images/icon1.png')}}" class="icon">
   @else
   <img src="{{asset('storage/'.$users->images)}}" class="icon">
   @endif
@@ -110,7 +110,7 @@
     <div class="timeline-box">
       <div class="tl-left">
         @if($post->user->images === 'icon1.png')
-        <img src="{{asset('images/'. $post->user->images)}}" class="icon">
+        <img src="{{asset('images/icon1.png')}}" class="icon">
         @else
         <img src="{{asset('storage/'. $post->user->images)}}" class="icon">
         @endif
