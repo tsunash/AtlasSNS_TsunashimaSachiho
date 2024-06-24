@@ -29,12 +29,16 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="/images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="{{ asset('images/atlas.png')}}"></a></h1>
             <div id="head-container">
                 <div id="header-menu">
                         <p><span class="header-name">{{ Auth::user()->username }}</span>さん</p>
                         <span class="triangle-btn"></span>
+                        @if(Auth::user()->images === 'icon1.png')
+                        <img class="icon" src="{{asset('images/'. Auth::user()->images )}}">
+                        @else
                         <img class="icon" src="{{asset('storage/'. Auth::user()->images )}}">
+                        @endif
                 </div>
             </div>
         </div>

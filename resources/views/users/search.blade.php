@@ -8,7 +8,7 @@
   {{ Form::open(['url'=>'/search']) }}
   @csrf
   {{ Form::input('text','keyword','',['placeholder'=>'ユーザー名','class'=>'search-text']) }}
-  <input type="image" src="/images/search.png" class="btn" alt="検索">
+  <input type="image" src="{{ asset('images/search.png')}}" class="btn" alt="検索">
   {{ Form::close() }}
 
   @if(isset($keyword))
@@ -20,7 +20,11 @@
   <ul class="search-wrapper">
     @foreach($users as $user)
       <li class=search-list>
+        @if($user->images === 'icon1.png')
+        <img src="{{ asset('images/'. $user->images )}}" class="icon">
+        @else
         <img src="{{ asset('storage/'. $user->images )}}" class="icon">
+        @endif
         <p>{{ $user->username }}</p>
 @if(!Auth::user()->isFollowing($user->id))
         {{ Form::open(['url'=>'/follow']) }}

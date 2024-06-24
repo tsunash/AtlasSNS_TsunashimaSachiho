@@ -5,7 +5,11 @@
 @if( $users->id == Auth::id() )
 <div class="auth-profile-box">
 
+  @if($users->images ==='icon1.png')
+  <img src="{{asset('images/'.$users->images)}}" class="icon">
+  @else
   <img src="{{asset('storage/'.$users->images)}}" class="icon">
+  @endif
   {{ Form::open(['route'=>'profile.edit','enctype'=>'multipart/form-data']) }}
   @csrf
 
@@ -65,8 +69,11 @@
 
 @else
 <div class="profile-top">
-
+  @if($users->images === 'icon1.png')
+  <img src="{{asset('images/'.$users->images)}}" class="icon">
+  @else
   <img src="{{asset('storage/'.$users->images)}}" class="icon">
+  @endif
 
   <div class="profile-wrapper">
     <div class="other-profile">
@@ -102,7 +109,11 @@
   <li class="timeline-list">
     <div class="timeline-box">
       <div class="tl-left">
+        @if($post->user->images === 'icon1.png')
+        <img src="{{asset('images/'. $post->user->images)}}" class="icon">
+        @else
         <img src="{{asset('storage/'. $post->user->images)}}" class="icon">
+        @endif
       </div>
     <div class="tl-middle">
       <p>{{ $post->user->username }}</p>
